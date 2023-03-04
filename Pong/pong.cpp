@@ -1,3 +1,9 @@
+/*
+Created by Moff and Ethan Rule
+
+Objective: Build the game 
+*/
+
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
@@ -12,7 +18,7 @@ sf::RectangleShape createPaddle(Paddle paddleAttributes)
     sf::RectangleShape Paddle;
     Paddle.setFillColor(paddleAttributes.color);
     Paddle.setSize(sf::Vector2f(15, 100));
-    Paddle.setOutlineColor(sf::Color::White);
+    Paddle.setOutlineColor(sf::Color(0, 0, 128, 255));
     Paddle.setOutlineThickness(2);
     Paddle.setPosition(paddleAttributes.x, paddleAttributes.y);
     return Paddle;
@@ -20,7 +26,7 @@ sf::RectangleShape createPaddle(Paddle paddleAttributes)
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "Pong");
 
     while (window.isOpen())
     {
