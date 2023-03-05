@@ -39,18 +39,28 @@ int main() {
                 window.close();
                 break;
             case sf::Event::KeyPressed:
-                if (event.key.code == sf::Keyboard::Space || keyHeldDown) {
-                    keyHeldDown = true;
+                if (event.key.code == sf::Keyboard::W) {
+
                     leftPaddle.updatePosition();
                 }
-                break;
-            case sf::Event::KeyReleased:
-                keyHeldDown = false;
+                if (event.key.code == sf::Keyboard::S) {
+
+                    leftPaddle.updatePosition();
+                }
+                // Right Paddle
+
+                if (event.key.code == sf::Keyboard::Up) {
+
+                    rightPaddle.updatePosition();
+                }
+                if (event.key.code == sf::Keyboard::Down)
+                {
+                    rightPaddle.updatePosition();
+                }
+
                 break;
             }
         }
-
-        rightPaddle.updatePosition();
 
         leftP.setPosition(leftPaddle.getXPosition(), leftPaddle.getYPosition());
         rightP.setPosition(rightPaddle.getXPosition(), rightPaddle.getYPosition());
