@@ -17,16 +17,19 @@ sf::RectangleShape createPaddle(Paddle p) {
     Paddle.setOutlineColor(sf::Color(0, 0, 128, 255));
     Paddle.setOutlineThickness(2);
     Paddle.setPosition(p.getXPosition(), p.getYPosition());
+
     return Paddle;
 }
 
-sf::CircleShape createCircle()
+sf::CircleShape createCircle(Ball b)
 {
     sf::CircleShape Ball;
-    Ball.setRadius(10);
+    Ball.setRadius(b.getRadius());
+    Ball.setFillColor(sf::Color(255, 255, 255, 255));
     Ball.setOutlineColor(sf::Color(255, 0, 0, 255));
     Ball.setOutlineThickness(2);
-    Ball.setPosition(500, 500);
+    Ball.setPosition(b.getXPosition(), b.getYPosition());
+
     return Ball;
 }
 
@@ -37,8 +40,9 @@ int main() {
 
     Paddle leftPaddle = Paddle(10, 20, sf::Color::Blue);
     Paddle rightPaddle = Paddle(1255, 600, sf::Color::Red);
-    sf::CircleShape ball = createCircle();
+    Ball ball = Ball(640, 360, 10);
 
+    sf::CircleShape ballFX = createCircle(ball);
     sf::RectangleShape leftP = createPaddle(leftPaddle);
     sf::RectangleShape rightP = createPaddle(rightPaddle);
 
@@ -73,13 +77,25 @@ int main() {
                 break;
             }
         }
+        if (ball.getXPosition() <= (leftPaddle.getXPosition() + 15) && ball.getYPosition() >= (leftPaddle.getYPosition() - 100)) {
+            double part = (ball.getYPosition() - leftPaddle.getYPosition()) / 100; // Will return 1, 0, -1
+            ball.determineLocation(true, part);
+        }
+
+        if (ball.getXPosition() >= (rightPaddle.getXPosition()) && ball.getYPosition() >= (rightPaddle.getYPosition() - 100) && ball.getYPosition() <= rightPaddle.getYPosition()) {
+            double part = (ball.getYPosition() - rightPaddle.getYPosition()) / 100; // Will return 1, 0, -1
+            ball.determineLocation(false, part);
+        }
+
+        ball.updatePosition();
+        ballFX.setPosition(ball.getXPosition(), ball.getYPosition());
 
         leftP.setPosition(leftPaddle.getXPosition(), leftPaddle.getYPosition());
         rightP.setPosition(rightPaddle.getXPosition(), rightPaddle.getYPosition());
 
         window.clear();
 
-        window.draw(ball);
+        window.draw(ballFX);
         window.draw(leftP);
         window.draw(rightP);
         window.display();

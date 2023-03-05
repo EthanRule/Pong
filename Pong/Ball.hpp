@@ -4,11 +4,25 @@
 
 class Ball {
 public:
-	Ball(int direction);
+	Ball(int xPosition, int yPosition, int radius);
+
+	double getXPosition();
+	double getYPosition();
+	double getXSpeed();
+	double getYSpeed();
+	int getRadius();
+
+	void setXPosition(double xPosition);
+	void setYPosition(double yPosition);
+
+	void determineLocation(bool left, double part);
+	void updatePosition();
+
 
 private:
-	double ySpeed;
+	double yPosition;
+	double xPosition;
 	double xSpeed;
-	int speed;
+	double ySpeed;
 	int radius;
 };
