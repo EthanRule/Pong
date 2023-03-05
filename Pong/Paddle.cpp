@@ -34,7 +34,7 @@ void Paddle::updatePosition() {
 }
 
 void Paddle::updatePaddleSpeed() {
-	if (this->yPosition < 0 || this->yPosition > 1280) {
+	if (this->yPosition < 0 || this->yPosition > 620) {
 		this->paddleSpeed *= -1;
 	}
 }

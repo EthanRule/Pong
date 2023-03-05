@@ -1,8 +1,10 @@
-﻿  Pong.cpp
+﻿  Paddle.cpp
+  Pong.cpp
 C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(18,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(18,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(50,77): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(50,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(51,80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(51,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(55,77): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(55,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(56,80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(56,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
   Pong.vcxproj -> C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\x64\Debug\Pong.exe

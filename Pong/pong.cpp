@@ -21,6 +21,8 @@ sf::RectangleShape createPaddle(Paddle p) {
 }
 
 int main() {
+    bool keyHeldDown = false;
+
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Pong");
 
     Paddle leftPaddle = Paddle(10, 20, sf::Color::Blue);
@@ -37,11 +39,15 @@ int main() {
                 window.close();
                 break;
             case sf::Event::KeyPressed:
-                if (event.key.code == sf::Keyboard::W) {
+                if (event.key.code == sf::Keyboard::W || keyHeldDown) {
+                    keyHeldDown = true;
                     leftPaddle.updatePosition();
                 }
+                break;
+            case sf::Event::KeyReleased:
+                keyHeldDown = false;
+                break;
             }
-
         }
 
         rightPaddle.updatePosition();
