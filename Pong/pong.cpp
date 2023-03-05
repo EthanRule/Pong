@@ -76,6 +76,7 @@ int main() {
 
                 break;
             }
+
         }
 
         if (ball.getXPosition() <= (leftPaddle.getXPosition() + 15) && ball.getYPosition() >= leftPaddle.getYPosition() && ball.getYPosition() <= leftPaddle.getYPosition() + 100) {
