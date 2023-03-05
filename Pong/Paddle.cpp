@@ -5,7 +5,7 @@ Paddle::Paddle(int xPosition, int yPosition, sf::Color color) {
 	this->xPosition = xPosition;
 	this->yPosition = yPosition;
 	this->color = color;
-	this->paddleSpeed = 5;
+	this->paddleSpeed = 10;
 }
 
 int Paddle::getXPosition() {
