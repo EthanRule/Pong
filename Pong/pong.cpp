@@ -39,7 +39,7 @@ int main() {
                 window.close();
                 break;
             case sf::Event::KeyPressed:
-                if (event.key.code == sf::Keyboard::W || keyHeldDown) {
+                if (event.key.code == sf::Keyboard::Space || keyHeldDown) {
                     keyHeldDown = true;
                     leftPaddle.updatePosition();
                 }
