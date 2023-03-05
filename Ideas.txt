@@ -1,0 +1,4 @@
+property folder
+Pong.vcxproj
+Pong.vcxproj.user
+.suo?
