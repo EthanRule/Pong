@@ -14,7 +14,7 @@ public:
 	// Setters
 	void changeXPosition(int xPosition);
 	void changeYPosition(int yPosition);
-	void updatePosition();
+	void updatePosition(bool up);
 
 private:
 	int xPosition;
@@ -22,5 +22,5 @@ private:
 	int paddleSpeed;
 	sf::Color color;
 
-	void updatePaddleSpeed();
+	void restrictPaddlePosition();
 };

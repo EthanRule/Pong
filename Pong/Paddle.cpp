@@ -28,13 +28,17 @@ void Paddle::changeYPosition(int yPosition) {
 	this->yPosition = yPosition;
 }
 
-void Paddle::updatePosition() {
-	this->updatePaddleSpeed();
-	this->yPosition -= this->paddleSpeed;
+void Paddle::updatePosition(bool up) {
+	this->yPosition -= up ? this->paddleSpeed: this->paddleSpeed * -1;
+	restrictPaddlePosition();
 }
 
-void Paddle::updatePaddleSpeed() {
-	if (this->yPosition < 0 || this->yPosition > 620) {
-		this->paddleSpeed *= -1;
+void Paddle::restrictPaddlePosition() {
+	if (this->yPosition < 0) {
+		this->yPosition = 0;
+	}
+
+	if (this->yPosition > 620) {
+		this->yPosition = 620;
 	}
 }
