@@ -1,2 +1,0 @@
-Z:\GIT\Pong\Pong\x64\Debug\Pong.exe
-C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\x64\Debug\Pong.exe

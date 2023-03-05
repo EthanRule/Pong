@@ -5,7 +5,6 @@ Objective: Build the game
 */
 
 #include <iostream>
-#include <SFML/Graphics.hpp>
 
 #include "Paddle.hpp"
 
