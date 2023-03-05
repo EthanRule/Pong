@@ -50,19 +50,15 @@ int main() {
     sf::RectangleShape rightP = createPaddle(rightPaddle);
 
     //TEXT
-
     sf::Font font;
-
     if (!font.loadFromFile("Z:/GIT/Pong/Fonts/Shine.ttf"))
     {
         std::cout << "Error loading file TEXT" << std::endl;
         system("pause");
     }
-
     sf::Text text;
     text.setFont(font);
     text.setString("Hello World");
-
     text.setString("PONG!");
     text.setCharacterSize(200);
     text.setPosition(435, 60);
@@ -78,7 +74,6 @@ int main() {
         std::cout << "Error loading file SOUND" << std::endl;
         system("pause");
     }
-
     sf::Sound sound;
     sound.setBuffer(buffer);
     sound.setVolume(100.f);
@@ -87,8 +82,6 @@ int main() {
 
 
     while (window.isOpen()) {
-
- 
 
         sf::Event event;
         while (window.pollEvent(event)) {
