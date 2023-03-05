@@ -41,21 +41,23 @@ int main() {
             case sf::Event::KeyPressed:
                 if (event.key.code == sf::Keyboard::W) {
 
-                    leftPaddle.updatePosition();
+                    leftPaddle.updatePosition(true);
                 }
+
                 if (event.key.code == sf::Keyboard::S) {
 
-                    leftPaddle.updatePosition();
+                    leftPaddle.updatePosition(false);
                 }
-                // Right Paddle
 
+                // Right Paddle
                 if (event.key.code == sf::Keyboard::Up) {
 
-                    rightPaddle.updatePosition();
+                    rightPaddle.updatePosition(true);
                 }
+
                 if (event.key.code == sf::Keyboard::Down)
                 {
-                    rightPaddle.updatePosition();
+                    rightPaddle.updatePosition(false);
                 }
 
                 break;
