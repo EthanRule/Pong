@@ -2,3 +2,14 @@ property folder
 Pong.vcxproj
 Pong.vcxproj.user
 .suo?
+
+
+
+1. Make options menu(adjust sound)
+2. Add scoring
+3. Add restrictions for when ball escapes the screen from left and right
+4. Optimize/Organize Code
+5. Add win condition
+6. Add Audio
+7. Add menu to play again after a win.
+8. Figureout Multiple Inputs
