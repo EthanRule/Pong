@@ -1,5 +1,5 @@
 #include "Paddle.hpp"
-
+#include <SFML/Graphics.hpp>
 
 Paddle::Paddle(int xPosition, int yPosition, sf::Color color) {
 	this->xPosition = xPosition;
