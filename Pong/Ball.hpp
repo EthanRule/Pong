@@ -10,6 +10,7 @@ public:
 	double getYPosition();
 	double getXSpeed();
 	double getYSpeed();
+	void setYSpeed();
 	int getRadius();
 
 	void setXPosition(double xPosition);

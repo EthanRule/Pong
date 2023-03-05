@@ -88,6 +88,10 @@ void Ball::updatePosition() {
 	this->yPosition += ySpeed;
 }
 
+void Ball::setYSpeed() {
+	this->ySpeed *= -1;
+}
+
 int Ball::getRadius() {
 	return this->radius;
 }
