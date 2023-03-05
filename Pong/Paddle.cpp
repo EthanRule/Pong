@@ -5,7 +5,7 @@ Paddle::Paddle(int xPosition, int yPosition, sf::Color color) {
 	this->xPosition = xPosition;
 	this->yPosition = yPosition;
 	this->color = color;
-	this->paddleSpeed = 10;
+	this->paddleSpeed = 1;
 }
 
 int Paddle::getXPosition() {
@@ -29,7 +29,7 @@ void Paddle::changeYPosition(int yPosition) {
 }
 
 void Paddle::updatePosition(bool up) {
-	this->yPosition -= up ? this->paddleSpeed: this->paddleSpeed * -1;
+	this->yPosition -= up ? this->paddleSpeed : this->paddleSpeed * -1 ;
 	restrictPaddlePosition();
 }
 

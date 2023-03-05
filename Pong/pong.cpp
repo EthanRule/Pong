@@ -33,6 +33,8 @@ sf::CircleShape createCircle(Ball b)
     return Ball;
 }
 
+
+
 int main() {
     bool keyHeldDown = false;
 
@@ -46,38 +48,63 @@ int main() {
     sf::RectangleShape leftP = createPaddle(leftPaddle);
     sf::RectangleShape rightP = createPaddle(rightPaddle);
 
+    //TEXT
+
+
+    sf::Font font;
+
+    if (!font.loadFromFile("Z:/GIT/Pong/Fonts/Shine.ttf"))
+    {
+        std::cout << "Error loading file" << std::endl;
+        system("pause");
+    }
+
+    sf::Text text;
+    text.setFont(font);
+    text.setString("Hello World");
+
+    text.setString("PONG!");
+    text.setCharacterSize(100);
+    text.setPosition(480, 360);
+    text.setFillColor(sf::Color(255, 255, 255, 255));
+    text.setOutlineColor(sf::Color(0, 0, 128, 255));
+    text.setOutlineThickness(4);
+    text.setStyle(sf::Text::Bold);
+
+
     while (window.isOpen()) {
+
+ 
+
         sf::Event event;
         while (window.pollEvent(event)) {
             switch (event.type) {
             case sf::Event::Closed:
                 window.close();
                 break;
-            case sf::Event::KeyPressed:
-                if (event.key.code == sf::Keyboard::W) {
-
-                    leftPaddle.updatePosition(true);
-                }
-                if (event.key.code == sf::Keyboard::S) {
-
-                    leftPaddle.updatePosition(false);
-                }
-
-                // Right Paddle
-                if (event.key.code == sf::Keyboard::Up) {
-
-                    rightPaddle.updatePosition(true);
-                }
-
-                if (event.key.code == sf::Keyboard::Down)
-                {
-                    rightPaddle.updatePosition(false);
-                }
-
-                break;
             }
-
         }
+
+        // Update Paddle Position
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+        {
+            leftPaddle.updatePosition(true);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+        {
+            leftPaddle.updatePosition(false);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        {
+            rightPaddle.updatePosition(true);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        {
+            rightPaddle.updatePosition(false);
+        }
+        
+
+
 
         if (ball.getXPosition() <= (leftPaddle.getXPosition() + 15) && ball.getYPosition() >= leftPaddle.getYPosition() && ball.getYPosition() <= leftPaddle.getYPosition() + 100) {
             double part = (ball.getYPosition() - leftPaddle.getYPosition()) / 100; // Will return 1, 0, -1
@@ -104,7 +131,11 @@ int main() {
         window.draw(ballFX);
         window.draw(leftP);
         window.draw(rightP);
+        window.draw(text);
+
         window.display();
+
+
     }
 
     return 0;
