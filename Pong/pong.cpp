@@ -6,8 +6,9 @@ Objective: Build the game
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
-
+#include <vector>
 #include "Paddle.hpp"
+#include "Ball.hpp"
 
 sf::RectangleShape createPaddle(Paddle p) {
     sf::RectangleShape Paddle;
@@ -16,8 +17,17 @@ sf::RectangleShape createPaddle(Paddle p) {
     Paddle.setOutlineColor(sf::Color(0, 0, 128, 255));
     Paddle.setOutlineThickness(2);
     Paddle.setPosition(p.getXPosition(), p.getYPosition());
-
     return Paddle;
+}
+
+sf::CircleShape createCircle()
+{
+    sf::CircleShape Ball;
+    Ball.setRadius(10);
+    Ball.setOutlineColor(sf::Color(255, 0, 0, 255));
+    Ball.setOutlineThickness(2);
+    Ball.setPosition(500, 500);
+    return Ball;
 }
 
 int main() {
@@ -27,6 +37,7 @@ int main() {
 
     Paddle leftPaddle = Paddle(10, 20, sf::Color::Blue);
     Paddle rightPaddle = Paddle(1255, 600, sf::Color::Red);
+    sf::CircleShape ball = createCircle();
 
     sf::RectangleShape leftP = createPaddle(leftPaddle);
     sf::RectangleShape rightP = createPaddle(rightPaddle);
@@ -43,7 +54,6 @@ int main() {
 
                     leftPaddle.updatePosition(true);
                 }
-
                 if (event.key.code == sf::Keyboard::S) {
 
                     leftPaddle.updatePosition(false);
@@ -69,6 +79,7 @@ int main() {
 
         window.clear();
 
+        window.draw(ball);
         window.draw(leftP);
         window.draw(rightP);
         window.display();

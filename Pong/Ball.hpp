@@ -4,10 +4,11 @@
 
 class Ball {
 public:
-	Ball(int speed, int radius);
+	Ball(int direction);
 
 private:
-	vector<double> ballSpeedPosition;
-
+	double ySpeed;
+	double xSpeed;
+	int speed;
 	int radius;
 };
