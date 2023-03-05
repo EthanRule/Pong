@@ -6,6 +6,7 @@ Objective: Build the game
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <vector>
 #include "Paddle.hpp"
 #include "Ball.hpp"
@@ -50,12 +51,11 @@ int main() {
 
     //TEXT
 
-
     sf::Font font;
 
     if (!font.loadFromFile("Z:/GIT/Pong/Fonts/Shine.ttf"))
     {
-        std::cout << "Error loading file" << std::endl;
+        std::cout << "Error loading file TEXT" << std::endl;
         system("pause");
     }
 
@@ -64,12 +64,26 @@ int main() {
     text.setString("Hello World");
 
     text.setString("PONG!");
-    text.setCharacterSize(100);
-    text.setPosition(480, 360);
+    text.setCharacterSize(200);
+    text.setPosition(435, 60);
     text.setFillColor(sf::Color(255, 255, 255, 255));
     text.setOutlineColor(sf::Color(0, 0, 128, 255));
     text.setOutlineThickness(4);
     text.setStyle(sf::Text::Bold);
+
+    //AUDIO
+    sf::SoundBuffer buffer;
+    if (!buffer.loadFromFile("Z:/GIT/Pong/Audio/Soundtrack.wav"))
+    {
+        std::cout << "Error loading file SOUND" << std::endl;
+        system("pause");
+    }
+
+    sf::Sound sound;
+    sound.setBuffer(buffer);
+    sound.setVolume(100.f);
+    sound.setLoop(true);
+    sound.play();
 
 
     while (window.isOpen()) {
