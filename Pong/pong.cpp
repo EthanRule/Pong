@@ -77,12 +77,12 @@ int main() {
                 break;
             }
         }
-        if (ball.getXPosition() <= (leftPaddle.getXPosition() + 15) && ball.getYPosition() >= (leftPaddle.getYPosition() - 100)) {
+        if (ball.getXPosition() <= (leftPaddle.getXPosition() + 15) && ball.getYPosition() >= leftPaddle.getYPosition() && ball.getYPosition() <= leftPaddle.getYPosition() + 100) {
             double part = (ball.getYPosition() - leftPaddle.getYPosition()) / 100; // Will return 1, 0, -1
             ball.determineLocation(true, part);
         }
 
-        if (ball.getXPosition() >= (rightPaddle.getXPosition()) && ball.getYPosition() >= (rightPaddle.getYPosition() - 100) && ball.getYPosition() <= rightPaddle.getYPosition()) {
+        if (ball.getXPosition() >= (rightPaddle.getXPosition()) && ball.getYPosition() >= (rightPaddle.getYPosition()) && ball.getYPosition() <= rightPaddle.getYPosition() + 100) {
             double part = (ball.getYPosition() - rightPaddle.getYPosition()) / 100; // Will return 1, 0, -1
             ball.determineLocation(false, part);
         }
