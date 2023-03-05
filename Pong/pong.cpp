@@ -7,57 +7,54 @@ Objective: Build the game
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
-struct Paddle {
-    int x;
-    int y;
-    sf::Color color;
-};
+#include "Paddle.hpp"
 
-sf::RectangleShape createPaddle(Paddle paddleAttributes)
-{
+sf::RectangleShape createPaddle(Paddle p) {
     sf::RectangleShape Paddle;
-    Paddle.setFillColor(paddleAttributes.color);
+    Paddle.setFillColor(p.getColor());
     Paddle.setSize(sf::Vector2f(15, 100));
     Paddle.setOutlineColor(sf::Color(0, 0, 128, 255));
     Paddle.setOutlineThickness(2);
-    Paddle.setPosition(paddleAttributes.x, paddleAttributes.y);
+    Paddle.setPosition(p.getXPosition(), p.getYPosition());
+
     return Paddle;
 }
 
-int main()
-{
+int main() {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Pong");
 
-    while (window.isOpen())
-    {
+    Paddle leftPaddle = Paddle(10, 20, sf::Color::Blue);
+    Paddle rightPaddle = Paddle(1255, 600, sf::Color::Red);
+
+    sf::RectangleShape leftP = createPaddle(leftPaddle);
+    sf::RectangleShape rightP = createPaddle(rightPaddle);
+
+    while (window.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
+        while (window.pollEvent(event)) {
+            switch (event.type) {
+            case sf::Event::Closed:
                 window.close();
+                break;
+            case sf::Event::KeyPressed:
+                if (event.key.code == sf::Keyboard::W) {
+                    leftPaddle.updatePosition();
+                }
+            }
+
         }
 
+        rightPaddle.updatePosition();
+
+        leftP.setPosition(leftPaddle.getXPosition(), leftPaddle.getYPosition());
+        rightP.setPosition(rightPaddle.getXPosition(), rightPaddle.getYPosition());
+
         window.clear();
-
-        Paddle leftPaddle;
-        leftPaddle.x = 10;
-        leftPaddle.y = 20;
-        leftPaddle.color = sf::Color::Blue;
-
-        Paddle rightPaddle;
-        rightPaddle.x = 1255;
-        rightPaddle.y = 600;
-        rightPaddle.color = sf::Color::Red;
-
-        sf::RectangleShape leftP = createPaddle(leftPaddle);
-        sf::RectangleShape rightP = createPaddle(rightPaddle);
 
         window.draw(leftP);
         window.draw(rightP);
         window.display();
     }
-
-
 
     return 0;
 }

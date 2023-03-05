@@ -1,4 +1,8 @@
 ﻿  Pong.cpp
-Z:\GIT\Pong\Pong\Pong.cpp(23,60): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-Z:\GIT\Pong\Pong\Pong.cpp(23,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Pong.vcxproj -> Z:\GIT\Pong\Pong\x64\Debug\Pong.exe
+C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(18,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(18,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(50,77): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(50,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(51,80): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\Pong.cpp(51,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Pong.vcxproj -> C:\Users\Lorenzo Stiavelli\Desktop\Freshman Year Code\C++\Pong\Pong\x64\Debug\Pong.exe
