@@ -5,6 +5,7 @@ Paddle::Paddle(int xPosition, int yPosition, sf::Color color) {
 	this->xPosition = xPosition;
 	this->yPosition = yPosition;
 	this->color = color;
+	this->score = 0;
 	this->paddleSpeed = 1;
 }
 
@@ -41,4 +42,12 @@ void Paddle::restrictPaddlePosition() {
 	if (this->yPosition > 620) {
 		this->yPosition = 620;
 	}
+}
+
+void Paddle::updateScore() {
+	this->score += 1;
+}
+
+int Paddle::getScore() {
+	return this->score;
 }

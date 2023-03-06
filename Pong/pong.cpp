@@ -5,6 +5,8 @@ Objective: Build the game
 */
 
 #include <iostream>
+#include <sstream>
+#include <string>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <vector>
@@ -34,8 +36,6 @@ sf::CircleShape createCircle(Ball b)
     return Ball;
 }
 
-
-
 int main() {
     bool keyHeldDown = false;
 
@@ -51,14 +51,14 @@ int main() {
 
     //TEXT
     sf::Font font;
-    if (!font.loadFromFile("Z:/GIT/Pong/Fonts/Shine.ttf"))
+    if (!font.loadFromFile("../Fonts/Shine.ttf"))
     {
         std::cout << "Error loading file TEXT" << std::endl;
         system("pause");
     }
+
     sf::Text text;
     text.setFont(font);
-    text.setString("Hello World");
     text.setString("PONG!");
     text.setCharacterSize(200);
     text.setPosition(435, 60);
@@ -67,16 +67,34 @@ int main() {
     text.setOutlineThickness(4);
     text.setStyle(sf::Text::Bold);
 
+    sf::Text leftPaddleScore;
+    leftPaddleScore.setFont(font);
+    std::string left = std::to_string(leftPaddle.getScore());
+    leftPaddleScore.setString(left);
+    leftPaddleScore.setCharacterSize(30);
+    leftPaddleScore.setPosition(leftPaddle.getXPosition() + 50, 30);
+    leftPaddleScore.setStyle(sf::Text::Bold);
+    leftPaddleScore.setFillColor(sf::Color(255, 255, 255, 255));
+
+    sf::Text rightPaddleScore;
+    rightPaddleScore.setFont(font);
+    std::string right = std::to_string(rightPaddle.getScore());
+    rightPaddleScore.setString(right);
+    rightPaddleScore.setCharacterSize(30);
+    rightPaddleScore.setPosition(rightPaddle.getXPosition() - 80, 30);
+    rightPaddleScore.setStyle(sf::Text::Bold);
+    rightPaddleScore.setFillColor(sf::Color(255, 255, 255, 255));
+
     //AUDIO
     sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("Z:/GIT/Pong/Audio/Soundtrack.wav"))
+    if (!buffer.loadFromFile("../Audio/SoundTrack.wav"))
     {
         std::cout << "Error loading file SOUND" << std::endl;
         system("pause");
     }
     sf::Sound sound;
     sound.setBuffer(buffer);
-    sound.setVolume(100.f);
+    sound.setVolume(10.f);
     sound.setLoop(true);
     sound.play();
 
@@ -109,9 +127,6 @@ int main() {
         {
             rightPaddle.updatePosition(false);
         }
-        
-
-
 
         if (ball.getXPosition() <= (leftPaddle.getXPosition() + 15) && ball.getYPosition() >= leftPaddle.getYPosition() && ball.getYPosition() <= leftPaddle.getYPosition() + 100) {
             double part = (ball.getYPosition() - leftPaddle.getYPosition()) / 100; // Will return 1, 0, -1
@@ -127,6 +142,24 @@ int main() {
             ball.setYSpeed();
         }
 
+        if (ball.getXPosition() <= 0 || ball.getXPosition() >= 1280) {
+            if (ball.getXPosition() <= 0) {
+                rightPaddle.updateScore();
+                std::string right = std::to_string(rightPaddle.getScore());
+                rightPaddleScore.setString(right);
+            }
+
+            if (ball.getXPosition() >= 1280) {
+                leftPaddle.updateScore();
+                std::string left = std::to_string(leftPaddle.getScore());
+                leftPaddleScore.setString(left);
+            }
+
+            ball.setXPosition(640);
+            ball.setYPosition(360);
+            ball.setXSpeed();
+        }
+
         ball.updatePosition();
         ballFX.setPosition(ball.getXPosition(), ball.getYPosition());
 
@@ -139,6 +172,8 @@ int main() {
         window.draw(leftP);
         window.draw(rightP);
         window.draw(text);
+        window.draw(leftPaddleScore);
+        window.draw(rightPaddleScore);
 
         window.display();
 

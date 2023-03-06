@@ -11,6 +11,7 @@ public:
 	double getXSpeed();
 	double getYSpeed();
 	void setYSpeed();
+	void setXSpeed();
 	int getRadius();
 
 	void setXPosition(double xPosition);

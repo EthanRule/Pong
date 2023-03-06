@@ -92,6 +92,10 @@ void Ball::setYSpeed() {
 	this->ySpeed *= -1;
 }
 
+void Ball::setXSpeed() {
+	this->xSpeed *= -1;
+}
+
 int Ball::getRadius() {
 	return this->radius;
 }
